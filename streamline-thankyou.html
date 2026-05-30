@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You | Streamline Services</title>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1007036885327927');
+  var pageviewID = 'pv_' + Date.now() + '_' + Math.random().toString(36).substr(2,9);
+  fbq('track', 'PageView', {}, {eventID: pageviewID});
+  var urlParams = new URLSearchParams(window.location.search);
+  var leadEventID = urlParams.get('eid') || 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2,9);
+  fbq('track', 'Lead', {}, {eventID: leadEventID});
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1007036885327927&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f9fafb; color: #111827; display: flex; flex-direction: column; min-height: 100vh; }
+    nav { background: #fff; border-bottom: 1px solid #e5e7eb; padding: 14px 24px; display: flex; align-items: center; }
+    .logo { font-size: 20px; font-weight: 800; color: #003d82; }
+    .logo span { color: #1976d2; }
+    .main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 24px; text-align: center; }
+    .card { background: white; border-radius: 20px; padding: 56px 48px; max-width: 520px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    .icon { width: 72px; height: 72px; background: #dbeafe; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 28px; font-size: 36px; }
+    h1 { font-size: 32px; font-weight: 900; color: #003d82; letter-spacing: -0.5px; margin-bottom: 12px; }
+    p { font-size: 17px; color: #6b7280; line-height: 1.6; margin-bottom: 8px; }
+    .highlight { color: #0057b8; font-weight: 700; }
+    footer { background: #111827; color: rgba(255,255,255,0.5); text-align: center; padding: 20px 24px; font-size: 13px; }
+    footer strong { color: white; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Streamline <span>Services</span></div>
+</nav>
+
+<div class="main">
+  <div class="card">
+    <div class="icon">✅</div>
+    <h1>You're All Set!</h1>
+    <p>Thanks for reaching out. We'll be in touch <span class="highlight">within minutes</span> to confirm your free quote.</p>
+    <p style="margin-top:16px;font-size:15px;">Keep an eye on your phone — we'll text you shortly.</p>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Streamline Services</strong> &nbsp;|&nbsp; Parker, CO &nbsp;|&nbsp; Serving a 25-Mile Radius</p>
+</footer>
+
+</body>
+</html>

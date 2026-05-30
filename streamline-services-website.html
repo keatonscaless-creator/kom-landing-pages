@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Streamline Services | Window Cleaning in Parker, CO</title>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1007036885327927');
+  var pageviewID = 'pv_' + Date.now() + '_' + Math.random().toString(36).substr(2,9);
+  fbq('track', 'PageView', {}, {eventID: pageviewID});
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1007036885327927&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --blue: #0057b8;
+      --blue-dark: #003d82;
+      --blue-light: #1976d2;
+      --sky: #e8f4fd;
+      --gold: #f59e0b;
+      --green: #22c55e;
+      --text: #111827;
+      --muted: #6b7280;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #f9fafb; color: var(--text); }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white); border-bottom: 1px solid #e5e7eb;
+      padding: 14px 24px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { font-size: 20px; font-weight: 800; color: var(--blue-dark); letter-spacing: -0.5px; }
+    .logo span { color: var(--blue-light); }
+    nav a.nav-cta {
+      background: var(--blue); color: white; font-weight: 700; font-size: 14px;
+      padding: 10px 22px; border-radius: 8px; text-decoration: none; transition: background 0.2s;
+    }
+    nav a.nav-cta:hover { background: var(--blue-dark); }
+
+    /* HERO + FORM */
+    .hero {
+      background: linear-gradient(135deg, #002f6c 0%, #0057b8 55%, #1976d2 100%);
+      color: white; padding: 48px 24px 60px;
+    }
+    .hero-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;
+    }
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .hero-copy { order: 1; text-align: center; }
+      .hero-form-col { order: 2; }
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+      color: #bfdbfe; font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+      text-transform: uppercase; padding: 7px 18px; border-radius: 100px; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 48px); font-weight: 900; line-height: 1.1;
+      letter-spacing: -1px; color: white; margin-bottom: 16px;
+    }
+    .hero h1 span { color: #60a5fa; }
+    .hero p {
+      font-size: 17px; color: rgba(255,255,255,0.85); margin-bottom: 20px; line-height: 1.6;
+    }
+    .offer-tag {
+      display: inline-block; background: var(--gold); color: #1a1a1a;
+      font-weight: 800; font-size: 14px; padding: 8px 22px; border-radius: 100px;
+    }
+    .hero-form-col .form-card {
+      background: white; border-radius: 20px; overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    /* TRUST */
+    .trust { background: white; border-bottom: 1px solid #e5e7eb; padding: 20px 24px; }
+    .trust-inner {
+      max-width: 900px; margin: 0 auto; display: flex;
+      justify-content: center; gap: 40px; flex-wrap: wrap;
+    }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--blue-dark); }
+    .trust-item svg { width: 18px; height: 18px; color: var(--blue-light); }
+
+    /* SECTIONS */
+    section { padding: 70px 24px; }
+    .section-label { font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue-light); margin-bottom: 12px; }
+    .section-title { font-size: clamp(26px, 4vw, 40px); font-weight: 800; letter-spacing: -0.8px; line-height: 1.2; color: var(--text); margin-bottom: 16px; }
+    .section-sub { font-size: 17px; color: var(--muted); max-width: 560px; line-height: 1.6; }
+    .center { text-align: center; }
+    .center .section-sub { margin: 0 auto; }
+
+    /* SERVICES */
+    .services { background: white; }
+    .services-grid { max-width: 1080px; margin: 48px auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .service-card { border: 1.5px solid #e5e7eb; border-radius: 16px; padding: 32px; transition: border-color 0.2s, box-shadow 0.2s; }
+    .service-card:hover { border-color: var(--blue-light); box-shadow: 0 6px 24px rgba(0,87,184,0.1); }
+    .service-icon { width: 52px; height: 52px; background: linear-gradient(135deg, var(--blue-dark), var(--blue-light)); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; font-size: 24px; }
+    .service-card h3 { font-size: 19px; font-weight: 700; margin-bottom: 10px; }
+    .service-card p { font-size: 15px; color: var(--muted); line-height: 1.6; }
+
+    /* WHY */
+    .why { background: #f9fafb; }
+    .why-grid { max-width: 1080px; margin: 48px auto 0; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    @media (max-width: 768px) { .why-grid { grid-template-columns: 1fr; } }
+    .why-list { display: flex; flex-direction: column; gap: 20px; }
+    .why-item { display: flex; gap: 16px; align-items: flex-start; }
+    .why-check { width: 40px; height: 40px; background: #dbeafe; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .why-check svg { width: 20px; height: 20px; color: var(--blue); }
+    .why-item h4 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .why-item p { font-size: 15px; color: var(--muted); line-height: 1.5; }
+    .why-stats { background: linear-gradient(135deg, var(--blue-dark), var(--blue-light)); border-radius: 20px; padding: 48px 40px; color: white; display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .stat-item { text-align: center; }
+    .stat-num { font-size: 42px; font-weight: 900; letter-spacing: -1px; line-height: 1; margin-bottom: 6px; }
+    .stat-label { font-size: 13px; color: rgba(255,255,255,0.75); font-weight: 600; }
+
+    /* TESTIMONIALS */
+    .testimonials { background: white; }
+    .testimonials-grid { max-width: 1080px; margin: 48px auto 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+    .testimonial-card { background: #f9fafb; border: 1.5px solid #e5e7eb; border-radius: 16px; padding: 28px; }
+    .stars { color: #f59e0b; font-size: 18px; margin-bottom: 14px; }
+    .testimonial-card p { font-size: 15px; color: var(--text); line-height: 1.65; margin-bottom: 20px; font-style: italic; }
+    .reviewer { display: flex; align-items: center; gap: 12px; }
+    .reviewer-avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; color: white; }
+    .reviewer-name { font-size: 15px; font-weight: 700; }
+    .reviewer-loc { font-size: 13px; color: var(--muted); }
+
+    /* SERVICE AREA */
+    .area { background: var(--sky); }
+    .area-inner { max-width: 900px; margin: 0 auto; }
+    .area-chips { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .chip { background: white; border: 1.5px solid #bfdbfe; color: var(--blue-dark); font-size: 14px; font-weight: 600; padding: 8px 18px; border-radius: 100px; }
+
+
+    /* PRIVACY MODAL */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 999; align-items: center; justify-content: center; padding: 20px; }
+    .modal-overlay.open { display: flex; }
+    .modal-box { background: white; border-radius: 16px; padding: 36px; max-width: 660px; width: 100%; max-height: 85vh; overflow-y: auto; position: relative; }
+    .modal-close { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 24px; color: var(--muted); cursor: pointer; }
+    .modal-box h2 { font-size: 22px; font-weight: 800; margin-bottom: 20px; }
+    .modal-box h3 { font-size: 15px; font-weight: 700; margin: 20px 0 8px; }
+    .modal-box p, .modal-box li { font-size: 14px; color: #374151; line-height: 1.65; margin-bottom: 8px; }
+    .modal-box ul { padding-left: 20px; }
+    .modal-tabs { display: flex; gap: 8px; margin-bottom: 24px; border-bottom: 2px solid #e5e7eb; }
+    .modal-tab { font-size: 14px; font-weight: 700; color: var(--muted); padding: 8px 16px 12px; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; background: none; border-top: none; border-left: none; border-right: none; font-family: 'Inter', sans-serif; }
+    .modal-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+    .modal-panel { display: none; }
+    .modal-panel.active { display: block; }
+
+    /* FOOTER */
+    footer { background: #111827; color: rgba(255,255,255,0.6); text-align: center; padding: 28px 24px; font-size: 14px; }
+    footer strong { color: white; }
+
+    /* ANIMATIONS */
+    .scroll-fade { opacity: 0; transform: translateY(30px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .scroll-fade.visible { opacity: 1; transform: translateY(0); }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .hero-inner { animation: fadeUp 0.6s ease both; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Streamline <span>Services</span></div>
+  <a href="#quote" class="nav-cta">Get Free Quote</a>
+</nav>
+
+<section class="hero" id="quote">
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <div class="hero-badge">⭐ Parker, CO's #1 Window Cleaning Service</div>
+      <h1>Get Your <span>Free Quote</span></h1>
+      <p>Professional window cleaning for Parker homeowners. Streak-free results, same-week availability, zero hassle.</p>
+      <div class="offer-tag">🎉 10% Off Your First Appointment</div>
+    </div>
+    <div class="hero-form-col">
+      <div class="form-card">
+        <iframe
+          src="https://api.leadconnectorhq.com/widget/form/xjdcjYgNi1nkxniHu9ep"
+          style="width:100%;height:558px;border:none;"
+          id="inline-xjdcjYgNi1nkxniHu9ep"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="SS Window Form"
+          data-height="558"
+          data-layout-iframe-id="inline-xjdcjYgNi1nkxniHu9ep"
+          data-form-id="xjdcjYgNi1nkxniHu9ep"
+          title="SS Window Form">
+        </iframe>
+        <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      Fully Insured
+    </div>
+    <div class="trust-item">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      Same-Week Available
+    </div>
+    <div class="trust-item">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+      5-Star Rated
+    </div>
+    <div class="trust-item">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg>
+      Satisfaction Guaranteed
+    </div>
+    <div class="trust-item">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+      Parker + 25mi Radius
+    </div>
+  </div>
+</div>
+
+<section class="services">
+  <div class="center">
+    <div class="section-label">What We Do</div>
+    <h2 class="section-title">Every Window, Inside and Out</h2>
+    <p class="section-sub">We handle everything — from single-story homes to multi-level properties across the Parker area.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon">🪟</div><h3>Interior & Exterior Windows</h3><p>Full service on both sides of every pane. Streak-free and spotless every time.</p></div>
+    <div class="service-card"><div class="service-icon">🔲</div><h3>Screen Cleaning</h3><p>Screens trap dust and pollen. We clean and reinstall them so light pours back in.</p></div>
+    <div class="service-card"><div class="service-icon">🏠</div><h3>Track & Frame Cleaning</h3><p>Dirt in the tracks makes windows look grimy even after cleaning. We get all of it.</p></div>
+    <div class="service-card"><div class="service-icon">🏡</div><h3>Seasonal Deep Clean</h3><p>Spring and fall full-home cleans to remove buildup and months of Colorado grime.</p></div>
+    <div class="service-card"><div class="service-icon">⚡</div><h3>Move-In / Move-Out</h3><p>Make every window shine for showings, walkthroughs, or first impressions.</p></div>
+    <div class="service-card"><div class="service-icon">📅</div><h3>Recurring Service Plans</h3><p>Monthly, bi-monthly, or quarterly. Set it and forget it.</p></div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="why-grid">
+    <div>
+      <div class="section-label">Why Streamline</div>
+      <h2 class="section-title">We Actually Show Up. And We Do It Right.</h2>
+      <p class="section-sub" style="margin-bottom:32px;">No chasing down flaky crews. No streaks left behind. Just clean windows.</p>
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-check"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          <div><h4>Streak-Free or We Come Back</h4><p>Not happy? We'll return same day, no questions asked.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-check"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          <div><h4>Uniformed, Professional Crew</h4><p>Vetted team members you can feel comfortable having on your property.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-check"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          <div><h4>Upfront Pricing, No Surprises</h4><p>You know the price before we start. No hidden fees.</p></div>
+        </div>
+        <div class="why-item">
+          <div class="why-check"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div>
+          <div><h4>Fully Insured & Bonded</h4><p>We carry full liability insurance on every job.</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="why-stats">
+      <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Homes Cleaned</div></div>
+      <div class="stat-item"><div class="stat-num">5.0</div><div class="stat-label">Average Rating</div></div>
+      <div class="stat-item"><div class="stat-num">25mi</div><div class="stat-label">Service Radius</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Satisfaction Rate</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="center">
+    <div class="section-label">Real Customers</div>
+    <h2 class="section-title">Parker Homeowners Love Us</h2>
+    <p class="section-sub">Don't take our word for it — here's what your neighbors are saying.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"These guys are incredible. I could not believe how different my house looked. Worth every penny."</p>
+      <div class="reviewer"><div class="reviewer-avatar" style="background:#0057b8;">JM</div><div><div class="reviewer-name">Jennifer M.</div><div class="reviewer-loc">Parker, CO</div></div></div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Hired them before listing my house. My realtor said the windows made the home look 10 years newer. Multiple offers above asking within a week."</p>
+      <div class="reviewer"><div class="reviewer-avatar" style="background:#1565c0;">TR</div><div><div class="reviewer-name">Tyler R.</div><div class="reviewer-loc">Castle Rock, CO</div></div></div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Super professional, on time, and the windows came out perfect. I signed up for their quarterly plan. Easy decision."</p>
+      <div class="reviewer"><div class="reviewer-avatar" style="background:#003d82;">SL</div><div><div class="reviewer-name">Sarah L.</div><div class="reviewer-loc">Highlands Ranch, CO</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="area">
+  <div class="area-inner center">
+    <div class="section-label">Service Area</div>
+    <h2 class="section-title">We Come to You</h2>
+    <p class="section-sub">Based in Parker — serving the entire 25-mile surrounding area.</p>
+    <div class="area-chips">
+      <span class="chip">Parker</span><span class="chip">Castle Rock</span><span class="chip">Highlands Ranch</span>
+      <span class="chip">Lone Tree</span><span class="chip">Centennial</span><span class="chip">Aurora</span>
+      <span class="chip">Englewood</span><span class="chip">Franktown</span><span class="chip">Larkspur</span>
+      <span class="chip">Elizabeth</span><span class="chip">Sedalia</span><span class="chip">Littleton</span>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <p><strong>Streamline Services</strong> &nbsp;|&nbsp; Parker, CO &nbsp;|&nbsp; Serving a 25-Mile Radius</p>
+  <p style="margin-top:8px;">
+    <a href="https://streamlinewindows.org/privacy-policy" style="color:rgba(255,255,255,0.5);text-decoration:underline;font-size:13px;">Privacy Policy</a>
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="https://streamlinewindows.org/terms-of-service" style="color:rgba(255,255,255,0.5);text-decoration:underline;font-size:13px;">Terms of Service</a>
+  </p>
+  <p style="margin-top:8px;font-size:14px;color:rgba(255,255,255,0.6);">📞 <a href="tel:7206267478" style="color:rgba(255,255,255,0.6);text-decoration:none;">(720) 626-7478</a></p>
+  <p style="margin-top:6px;font-size:12px;color:rgba(255,255,255,0.35);">© 2026 Streamline Services. All rights reserved.</p>
+</footer>
+
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69f6a4eb9b1858368749c23d" data-source="WEB_USER"></script>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.service-card, .testimonial-card, .why-item, .stat-item, .chip').forEach((el, i) => {
+    el.style.transitionDelay = `${(i % 4) * 80}ms`;
+    el.classList.add('scroll-fade');
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
