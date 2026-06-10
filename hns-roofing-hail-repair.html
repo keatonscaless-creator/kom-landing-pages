@@ -131,6 +131,8 @@
     }
     .form-submit:hover { background: var(--gold-light); }
     .form-disclaimer { font-size: 11px; color: #9ca3af; text-align: center; margin-top: 12px; line-height: 1.5; }
+    .ghl-form-wrap { min-height: 520px; }
+    .ghl-form-wrap iframe { width: 100%; min-height: 520px; }
 
     /* TRUST BAR */
     .trust { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 18px 24px; }
@@ -262,33 +264,26 @@
           <p>A local roofing specialist will reach out within minutes to schedule your inspection.</p>
         </div>
         <div class="form-body">
-          <!-- PASTE GHL FORM EMBED CODE HERE -->
-          <!-- Replace this placeholder form with your GHL iframe embed -->
-          <form id="lead-form" onsubmit="handleSubmit(event)">
-            <div class="form-group">
-              <label>Full Name *</label>
-              <input type="text" name="name" placeholder="John Smith" required/>
-            </div>
-            <div class="form-group">
-              <label>Phone Number *</label>
-              <input type="tel" name="phone" placeholder="(720) 555-0100" required/>
-            </div>
-            <div class="form-group">
-              <label>Property Address *</label>
-              <input type="text" name="address" placeholder="Street address, The Pinery / Parker, CO" required/>
-            </div>
-            <div class="form-group">
-              <label>What damage are you seeing?</label>
-              <select name="damage_type">
-                <option value="">Select one...</option>
-                <option>Hail Damage to Roof / Shingles</option>
-                <option>Roof Leak</option>
-                <option>Damaged Gutters or Siding</option>
-                <option>Not Sure — Need an Inspection</option>
-              </select>
-            </div>
-            <button type="submit" class="form-submit">Get My Free Inspection →</button>
-          </form>
+          <div class="ghl-form-wrap">
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/form/GyWGCS2ZyEaEWd3Nx2Ge"
+              style="width:100%;height:100%;border:none;border-radius:8px"
+              id="inline-GyWGCS2ZyEaEWd3Nx2Ge"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="NHS Form"
+              data-height="undefined"
+              data-layout-iframe-id="inline-GyWGCS2ZyEaEWd3Nx2Ge"
+              data-form-id="GyWGCS2ZyEaEWd3Nx2Ge"
+              title="NHS Form">
+            </iframe>
+          </div>
+          <script src="https://link.msgsndr.com/js/form_embed.js"></script>
           <p class="form-disclaimer">By submitting, you agree to receive calls and texts (including automated messages) from HNS Property Services about your free roof inspection. Msg & data rates may apply, frequency varies. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase.</p>
         </div>
       </div>
@@ -491,16 +486,6 @@
     el.style.transitionDelay = `${(i % 4) * 80}ms`;
     observer.observe(el);
   });
-
-  // Placeholder form handler — replace with GHL embed
-  function handleSubmit(e) {
-    e.preventDefault();
-    var leadEventID = 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2,9);
-    if (typeof fbq !== 'undefined') {
-      fbq('track', 'Lead', {}, {eventID: leadEventID});
-    }
-    alert('Thanks! We\'ll be in touch within minutes to schedule your free inspection.');
-  }
 </script>
 
 </body>
