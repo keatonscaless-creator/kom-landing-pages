@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thanks — Your Free Roof Inspection Request | HNS Property Services</title>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1025563446679592');
+  var pageviewID = 'pv_' + Date.now() + '_' + Math.random().toString(36).substr(2,9);
+  fbq('track', 'PageView', {}, {eventID: pageviewID});
+  var urlParams = new URLSearchParams(window.location.search);
+  var leadEventID = urlParams.get('eid') || 'lead_' + Date.now() + '_' + Math.random().toString(36).substr(2,9);
+  fbq('track', 'Lead', {}, {eventID: leadEventID});
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1025563446679592&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --dark: #0f1117;
+      --dark2: #1a1f2e;
+      --gold: #c8a84b;
+      --gold-light: #e2c46a;
+      --white: #ffffff;
+      --muted: #9ca3af;
+      --surface: #1e2535;
+      --border: rgba(255,255,255,0.08);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif; background: var(--dark); color: var(--white);
+      display: flex; flex-direction: column; min-height: 100vh;
+    }
+
+    nav {
+      background: rgba(15,17,23,0.95); border-bottom: 1px solid var(--border);
+      padding: 14px 24px; display: flex; align-items: center;
+    }
+    .logo { font-size: 18px; font-weight: 800; color: var(--white); letter-spacing: -0.3px; }
+    .logo span { color: var(--gold); }
+
+    .main { flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 24px; text-align: center; }
+    .card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+      padding: 56px 48px; max-width: 540px; box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+    }
+    .icon {
+      width: 72px; height: 72px; background: rgba(200,168,75,0.15); border: 1px solid rgba(200,168,75,0.3);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px; font-size: 36px; color: var(--gold);
+    }
+    h1 { font-size: 32px; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 12px; }
+    p { font-size: 17px; color: var(--muted); line-height: 1.6; margin-bottom: 8px; }
+    .highlight { color: var(--gold-light); font-weight: 700; }
+
+    footer { background: #080b10; border-top: 1px solid var(--border); color: rgba(255,255,255,0.4); text-align: center; padding: 20px 24px; font-size: 13px; }
+    footer strong { color: rgba(255,255,255,0.7); }
+    footer a { color: rgba(255,255,255,0.35); text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">HNS <span>Property Services</span></div>
+</nav>
+
+<div class="main">
+  <div class="card">
+    <div class="icon">✅</div>
+    <h1>You're All Set!</h1>
+    <p>Thanks for requesting your <span class="highlight">free storm damage inspection</span>. A local HNS specialist will reach out <span class="highlight">within minutes</span> to schedule your visit.</p>
+    <p style="margin-top:16px;font-size:15px;">Keep an eye on your phone — we'll call or text you shortly.</p>
+  </div>
+</div>
+
+<footer>
+  <p><strong>HNS Property Services</strong> &nbsp;|&nbsp; Parker, CO &nbsp;|&nbsp; <a href="tel:9252121585">(925) 212-1585</a></p>
+</footer>
+
+</body>
+</html>
