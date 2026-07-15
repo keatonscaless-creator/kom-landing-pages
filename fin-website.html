@@ -146,6 +146,22 @@
     position: relative;
     overflow: hidden;
   }
+  /* background video loop (client-provided B-roll, trimmed to 8s, muted) */
+  .hero-video {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: 0;
+  }
+  /* navy tint over the video so hero text stays readable + on-brand */
+  .hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(160deg, rgba(11,46,69,0.87) 0%, rgba(20,71,107,0.82) 100%);
+  }
+  .hero .grain::before, .hero.grain::before { z-index: 2; }
+  .hero .container { position: relative; z-index: 3; }
+  @media (max-width: 480px) {
+    /* skip the video on small screens — save data/battery, overlay + gradient still reads fine */
+    .hero-video { display: none; }
+  }
   /* logo is dark green/red — needs a light plate to read against the navy hero */
   .hero-logo-plate {
     display: inline-block; background: var(--cream);
@@ -160,6 +176,7 @@
   }
   .hero h1 {
     font-size: clamp(40px, 7vw, 72px); line-height: 1.05; margin-bottom: 18px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
   }
   .hero h1 span { color: var(--teal); }
   .hero p.sub {
@@ -331,6 +348,11 @@
 </header>
 
 <section class="hero grain topo">
+  <!-- client-provided B-roll (boat/reels at golden hour), trimmed to an 8s muted loop -->
+  <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/fin/fin-hero-poster.jpg">
+    <source src="assets/fin/fin-hero-video.mp4" type="video/mp4"/>
+  </video>
+  <div class="hero-overlay"></div>
   <div class="container">
     <div class="hero-logo-plate">
       <img class="hero-logo" src="assets/fin/fin-logo.png" alt="FIN — Fishing In Nebraska"/>
