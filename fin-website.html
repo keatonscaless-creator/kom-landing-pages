@@ -16,8 +16,6 @@
     STILL NEEDED FROM CLIENT (Keaton to collect):
     - Logo file (vector/PNG, transparent background) — currently
       using a styled "FIN" wordmark placeholder in the nav + hero
-    - Real product list: names, prices, sizes, descriptions, photos
-      (10 placeholders below, marked PLACEHOLDER PRODUCT)
     - Brand story blurb for Home + About sections
     - Shipping/returns policy text
     - Contact email + socials to link
@@ -25,6 +23,13 @@
     - Stripe Payment Link URLs per product/size — search this file
       for "STRIPE_LINK_PLACEHOLDER" and replace with real links
       once the client's Stripe account + products are set up
+    - Real hat + winter hoodie products for the fall drop (2 cards
+      currently marked "Coming Soon" near the end of the product grid)
+
+    DONE (2026-07-15): real product lineup swapped in — 4 tees + 2
+    hoodies, $40/$55, sizes S-2XL, UPF 50+ tag on every card. Photos
+    sourced from client's "FIN Products" Google Drive folder and
+    cropped into assets/fin/.
     ============================================================
   */
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -186,11 +191,16 @@
     color: rgba(245,243,238,0.55);
     font-size: 12px; text-align: center; padding: 16px;
     font-family: 'Oswald', sans-serif; letter-spacing: 1px; text-transform: uppercase;
+    overflow: hidden;
+  }
+  .product-photo img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center top;
   }
   .product-photo::after {
     content: "";
     position: absolute; inset: 0;
     background-image: repeating-linear-gradient(45deg, rgba(245,243,238,0.04) 0 2px, transparent 2px 14px);
+    pointer-events: none;
   }
   .sold-out-badge {
     position: absolute; top: 12px; left: 12px;
@@ -198,6 +208,21 @@
     font-size: 11px; font-weight: 700; letter-spacing: 1px;
     padding: 5px 10px; border-radius: 3px; text-transform: uppercase;
     z-index: 2;
+  }
+  .coming-soon-badge {
+    position: absolute; top: 12px; left: 12px;
+    background: var(--teal); color: var(--cream);
+    font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    padding: 5px 10px; border-radius: 3px; text-transform: uppercase;
+    z-index: 2;
+  }
+  .product-card.is-coming-soon .product-photo {
+    background: linear-gradient(135deg, var(--sand) 0%, var(--navy2) 140%);
+  }
+  .upf-tag {
+    display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+    color: var(--teal); background: rgba(44,122,156,0.1); border-radius: 3px;
+    padding: 3px 8px; text-transform: uppercase; width: fit-content;
   }
   .product-info { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
   .product-info h3 { font-size: 16px; color: var(--navy); letter-spacing: 0.4px; }
@@ -313,142 +338,126 @@
     <div class="section-head">
       <div class="section-eyebrow">The Collection</div>
       <h2>Shop FIN</h2>
-      <p>Ten pieces, made to hold up to a full day on the river. Sizes run S&ndash;XXL unless noted.</p>
+      <p>UPF 50+ sun-protective fishing tees and hoodies. Sizes run S&ndash;2XL. Hats and winter hoodies dropping this fall.</p>
     </div>
 
     <!--
-      PRODUCT GRID — all 10 items below are PLACEHOLDER PRODUCTS.
-      Swap name / price / description / photo per item once the client
-      sends real product data (see brief section 4).
+      PRODUCT GRID — real FIN products (from client's product photos in
+      Google Drive, "FIN Products" folder). Tees $40, hoodies $55, all
+      UPF 50+, sizes S/M/L/XL/2XL. Photos live in assets/fin/.
 
       Each .product-card has data-link-* attributes per size holding
       "STRIPE_LINK_PLACEHOLDER" — replace each with the real Stripe
       Payment Link URL for that product+size once Stripe is set up.
-      For "one size" items (hats), only data-link-os is used.
+
+      Hats + winter hoodies are marked "Coming Soon" below per client
+      (fall 2026 drop) — swap these two cards for real product cards
+      once that inventory comes in.
     -->
 
     <div class="product-grid">
 
       <!-- 1 -->
-      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-xxl="STRIPE_LINK_PLACEHOLDER">
-        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
+      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-2xl="STRIPE_LINK_PLACEHOLDER">
+        <div class="product-photo"><img src="assets/fin/fin-tee-tan.jpg" alt="FIN Fishing In Nebraska Tee — Tan"/></div>
         <div class="product-info">
-          <h3>River Runner Tee</h3>
-          <div class="product-price">$32</div>
-          <p class="product-desc">A soft, breathable tee for long days on the Platte. Built to take a beating and still look good at the boat ramp.</p>
-          <div class="size-row" data-sizes="S,M,L,XL,XXL"></div>
+          <h3>FIN Fishing Tee — Tan</h3>
+          <div class="product-price">$40</div>
+          <span class="upf-tag">UPF 50+ Sun Protection</span>
+          <p class="product-desc">Long-sleeve sun shirt with the FIN walleye mark across the chest. Lightweight, breathable, built for a full day on the water.</p>
+          <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
           <a href="#" class="buy-btn disabled">Select a Size</a>
         </div>
       </div>
 
       <!-- 2 -->
-      <div class="product-card" data-link-os="STRIPE_LINK_PLACEHOLDER">
-        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
+      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-2xl="STRIPE_LINK_PLACEHOLDER">
+        <div class="product-photo"><img src="assets/fin/fin-tee-blue-tie-dye.jpg" alt="FIN Fishing Tee — Blue Tie Dye"/></div>
         <div class="product-info">
-          <h3>Platte River Trucker Hat</h3>
-          <div class="product-price">$28</div>
-          <p class="product-desc">Structured front, mesh back, embroidered FIN mark. One size, adjustable snap.</p>
-          <div class="size-row" data-sizes="One Size"></div>
+          <h3>FIN Fishing Tee — Blue Tie Dye</h3>
+          <div class="product-price">$40</div>
+          <span class="upf-tag">UPF 50+ Sun Protection</span>
+          <p class="product-desc">Ice-blue tie dye long sleeve with the FIN walleye mark. Same sun protection, a little more character.</p>
+          <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
           <a href="#" class="buy-btn disabled">Select a Size</a>
         </div>
       </div>
 
       <!-- 3 -->
-      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-xxl="STRIPE_LINK_PLACEHOLDER">
-        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
+      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-2xl="STRIPE_LINK_PLACEHOLDER">
+        <div class="product-photo"><img src="assets/fin/fin-tee-light-gray-tie-dye.jpg" alt="FIN Fishing Tee — Light Gray Tie Dye"/></div>
         <div class="product-info">
-          <h3>Backwater Hoodie</h3>
-          <div class="product-price">$58</div>
-          <p class="product-desc">Heavyweight fleece for early mornings on the water before the sun catches up.</p>
-          <div class="size-row" data-sizes="S,M,L,XL,XXL"></div>
+          <h3>FIN Fishing Tee — Light Gray Tie Dye</h3>
+          <div class="product-price">$40</div>
+          <span class="upf-tag">UPF 50+ Sun Protection</span>
+          <p class="product-desc">Subtle gray tie dye long sleeve with the FIN walleye mark. Goes with everything in the boat.</p>
+          <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
           <a href="#" class="buy-btn disabled">Select a Size</a>
         </div>
       </div>
 
       <!-- 4 -->
-      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-xxl="STRIPE_LINK_PLACEHOLDER">
-        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
+      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-2xl="STRIPE_LINK_PLACEHOLDER">
+        <div class="product-photo"><img src="assets/fin/fin-tee-mint-tie-dye.jpg" alt="FIN Fishing Tee — Mint Tie Dye"/></div>
         <div class="product-info">
-          <h3>FIN Performance Fishing Shirt</h3>
-          <div class="product-price">$48</div>
-          <p class="product-desc">Quick-dry, UPF-rated button-down built for hot days and long casts.</p>
-          <div class="size-row" data-sizes="S,M,L,XL,XXL"></div>
+          <h3>FIN Fishing Tee — Mint Tie Dye</h3>
+          <div class="product-price">$40</div>
+          <span class="upf-tag">UPF 50+ Sun Protection</span>
+          <p class="product-desc">A lighter, brighter tie dye colorway with the FIN walleye mark. Stands out on the water.</p>
+          <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
           <a href="#" class="buy-btn disabled">Select a Size</a>
         </div>
       </div>
 
       <!-- 5 -->
-      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-xxl="STRIPE_LINK_PLACEHOLDER">
-        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
+      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-2xl="STRIPE_LINK_PLACEHOLDER">
+        <div class="product-photo"><img src="assets/fin/fin-hoodie-black-camo.jpg" alt="FIN Fishing Hoodie — Black Camo"/></div>
         <div class="product-info">
-          <h3>Nebraska Native Long Sleeve</h3>
-          <div class="product-price">$38</div>
-          <p class="product-desc">Sun protection for the whole float, with a clean chest print you won't outgrow.</p>
-          <div class="size-row" data-sizes="S,M,L,XL,XXL"></div>
+          <h3>FIN Fishing Hoodie — Black Camo</h3>
+          <div class="product-price">$55</div>
+          <span class="upf-tag">UPF 50+ Sun Protection</span>
+          <p class="product-desc">Black camo hoodie with the FIN walleye mark on the chest. Kangaroo pocket, drawstring hood, built for cooler mornings.</p>
+          <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
           <a href="#" class="buy-btn disabled">Select a Size</a>
         </div>
       </div>
 
       <!-- 6 -->
-      <div class="product-card" data-link-os="STRIPE_LINK_PLACEHOLDER">
-        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
+      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-2xl="STRIPE_LINK_PLACEHOLDER">
+        <div class="product-photo"><img src="assets/fin/fin-hoodie-gray-camo.jpg" alt="FIN Fishing Hoodie — Gray Camo"/></div>
         <div class="product-info">
-          <h3>Sandhill Crane Snapback</h3>
-          <div class="product-price">$26</div>
-          <p class="product-desc">Flat brim, low profile, FIN mark stitched on the front panel. One size.</p>
-          <div class="size-row" data-sizes="One Size"></div>
+          <h3>FIN Fishing Hoodie — Gray Camo</h3>
+          <div class="product-price">$55</div>
+          <span class="upf-tag">UPF 50+ Sun Protection</span>
+          <p class="product-desc">Gray camo hoodie with the FIN walleye mark on the chest. Same build as the black camo, lighter colorway.</p>
+          <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
           <a href="#" class="buy-btn disabled">Select a Size</a>
         </div>
       </div>
 
-      <!-- 7 -->
-      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-xxl="STRIPE_LINK_PLACEHOLDER">
-        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
-        <div class="product-info">
-          <h3>Catfish Alley Tee</h3>
-          <div class="product-price">$30</div>
-          <p class="product-desc">Ringspun cotton, garment-dyed for a broken-in feel right out of the bag.</p>
-          <div class="size-row" data-sizes="S,M,L,XL,XXL"></div>
-          <a href="#" class="buy-btn disabled">Select a Size</a>
-        </div>
-      </div>
-
-      <!-- 8 -->
-      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-xxl="STRIPE_LINK_PLACEHOLDER">
-        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
-        <div class="product-info">
-          <h3>Muddy Water Quarter-Zip</h3>
-          <div class="product-price">$62</div>
-          <p class="product-desc">Midweight layer for the shoulder seasons — mornings on the bank, evenings at the fire.</p>
-          <div class="size-row" data-sizes="S,M,L,XL,XXL"></div>
-          <a href="#" class="buy-btn disabled">Select a Size</a>
-        </div>
-      </div>
-
-      <!-- 9 -->
-      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-xxl="STRIPE_LINK_PLACEHOLDER">
-        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
-        <div class="product-info">
-          <h3>FIN Classic Logo Tee</h3>
-          <div class="product-price">$28</div>
-          <p class="product-desc">The one that started it all. Simple front chest logo, everyday cotton.</p>
-          <div class="size-row" data-sizes="S,M,L,XL,XXL"></div>
-          <a href="#" class="buy-btn disabled">Select a Size</a>
-        </div>
-      </div>
-
-      <!-- 10 -->
-      <div class="product-card is-sold-out" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-xxl="STRIPE_LINK_PLACEHOLDER">
+      <!-- 7 — coming soon -->
+      <div class="product-card is-coming-soon">
         <div class="product-photo">
-          <span class="sold-out-badge">Sold Out</span>
-          Product Photo<br/>— Swap Here —
+          <span class="coming-soon-badge">Coming Fall 2026</span>
+          FIN Hat<br/>— Photo Coming —
         </div>
         <div class="product-info">
-          <h3>River Guide Windbreaker</h3>
-          <div class="product-price">$75</div>
-          <p class="product-desc">Packable, water-resistant shell for when the weather turns on you mid-float.</p>
-          <div class="size-row" data-sizes="S,M,L,XL,XXL"></div>
-          <a href="#" class="buy-btn disabled">Sold Out</a>
+          <h3>FIN Hat</h3>
+          <div class="product-price">Coming Soon</div>
+          <p class="product-desc">Hats are dropping this fall. Check back or follow along on socials for the release.</p>
+        </div>
+      </div>
+
+      <!-- 8 — coming soon -->
+      <div class="product-card is-coming-soon">
+        <div class="product-photo">
+          <span class="coming-soon-badge">Coming Fall 2026</span>
+          Winter Hoodie<br/>— Photo Coming —
+        </div>
+        <div class="product-info">
+          <h3>FIN Winter Hoodie</h3>
+          <div class="product-price">Coming Soon</div>
+          <p class="product-desc">A heavier winter-weight hoodie is dropping this fall. Check back or follow along on socials for the release.</p>
         </div>
       </div>
 
@@ -505,6 +514,7 @@
   // build size buttons + wire size selection to placeholder Stripe links
   document.querySelectorAll('.product-card').forEach(function(card) {
     var sizeRow = card.querySelector('.size-row');
+    if (!sizeRow) return; // coming-soon cards have no size selector
     var sizes = sizeRow.getAttribute('data-sizes').split(',');
     var buyBtn = card.querySelector('.buy-btn');
     var isSoldOut = card.classList.contains('is-sold-out');
