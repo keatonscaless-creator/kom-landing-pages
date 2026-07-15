@@ -4,9 +4,9 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>FIN — Fishing In Nebraska | Fishing Apparel</title>
-<meta name="description" content="FIN — Fishing In Nebraska. Rugged, river-inspired fishing apparel from a small family-run outfit. Tees, hoodies, hats, and more."/>
+<meta name="description" content="FIN — Fishing In Nebraska. Rugged, lake-inspired fishing apparel from a small family-run outfit. Tees, hoodies, hats, and more."/>
 <meta property="og:title" content="FIN — Fishing In Nebraska"/>
-<meta property="og:description" content="Rugged, river-inspired fishing apparel. Small batch, family-run."/>
+<meta property="og:description" content="Rugged, lake-inspired fishing apparel. Small batch, family-run."/>
 <meta property="og:image" content="/assets/fin/og-image.jpg"/>
 <meta property="og:type" content="website"/>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
@@ -266,14 +266,7 @@
   .product-info h3 { font-size: 16px; color: var(--navy); letter-spacing: 0.4px; }
   .product-price { font-family: 'Oswald', sans-serif; font-size: 18px; color: var(--rust); font-weight: 600; }
   .product-desc { font-size: 13.5px; color: var(--muted); flex: 1; }
-  .size-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
-  .size-btn {
-    border: 1.5px solid var(--border); background: #fff; color: var(--navy);
-    font-size: 12px; font-weight: 600; padding: 6px 10px; border-radius: 4px;
-    cursor: pointer; transition: all 0.15s; font-family: 'Inter', sans-serif;
-  }
-  .size-btn:hover { border-color: var(--teal); }
-  .size-btn.selected { background: var(--navy); border-color: var(--navy); color: var(--cream); }
+  .size-note { font-size: 12.5px; color: var(--muted); font-weight: 600; margin-top: 2px; }
   .buy-btn {
     margin-top: 8px; width: 100%; padding: 12px; border-radius: 5px;
     background: var(--rust); color: var(--cream); border: none;
@@ -283,8 +276,8 @@
   }
   .buy-btn:hover { background: var(--rust-dark); }
   .buy-btn.disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; background: var(--muted); }
+  /* toggle this class on a .product-card manually once an item sells out */
   .product-card.is-sold-out .buy-btn { opacity: 0.45; cursor: not-allowed; pointer-events: none; background: var(--muted); }
-  .product-card.is-sold-out .size-btn { pointer-events: none; opacity: 0.5; }
 
   /* ---------- About ---------- */
   .about { background: var(--sand); color: var(--navy); position: relative; }
@@ -357,7 +350,7 @@
     <div class="hero-logo-plate">
       <img class="hero-logo" src="assets/fin/fin-logo.png" alt="FIN — Fishing In Nebraska"/>
     </div>
-    <h1>Gear built for<br/><span>river days</span></h1>
+    <h1>Gear built for<br/><span>lake days</span></h1>
     <!-- PLACEHOLDER COPY — swap for client's real brand story blurb -->
     <p class="sub">Small-batch fishing apparel made by people who'd rather be on the water than anywhere else. No big brand, no hard sell — just gear we actually wear.</p>
     <div class="hero-ctas">
@@ -378,11 +371,18 @@
     <!--
       PRODUCT GRID — real FIN products (from client's product photos in
       Google Drive, "FIN Products" folder). Tees $40, hoodies $55, all
-      UPF 50+, sizes S/M/L/XL/2XL. Photos live in assets/fin/.
+      UPF 50+, unisex sizing S/M/L/XL/2XL. Photos live in assets/fin/.
 
-      Each .product-card has data-link-* attributes per size holding
-      "STRIPE_LINK_PLACEHOLDER" — replace each with the real Stripe
-      Payment Link URL for that product+size once Stripe is set up.
+      STRIPE SETUP (one Payment Link per product, not per size):
+      each .product-card has a single data-link="STRIPE_LINK_PLACEHOLDER"
+      attribute AND the "Buy Now" button's href is the same placeholder —
+      search this file for "STRIPE_LINK_PLACEHOLDER" and replace both
+      with the same real Stripe Payment Link URL once it's created.
+      Size is collected on Stripe's own checkout page via a required
+      "Size" dropdown custom field on the Payment Link (Stripe Dashboard
+      → Payment Links → create → Advanced options → + Add custom field
+      → Dropdown → options S, M, L, XL, 2XL, mark Required) — this
+      keeps it to 6 links total instead of 30.
 
       Hats + winter hoodies are marked "Coming Soon" below per client
       (fall 2026 drop) — swap these two cards for real product cards
@@ -392,80 +392,80 @@
     <div class="product-grid">
 
       <!-- 1 -->
-      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-2xl="STRIPE_LINK_PLACEHOLDER">
+      <div class="product-card" data-link="STRIPE_LINK_PLACEHOLDER">
         <div class="product-photo"><img src="assets/fin/fin-tee-tan.jpg" alt="FIN Fishing In Nebraska Tee — Tan"/></div>
         <div class="product-info">
           <h3>FIN Fishing Tee — Tan</h3>
           <div class="product-price">$40</div>
           <div class="tag-row"><span class="upf-tag">UPF 50+ Sun Protection</span><span class="unisex-tag">Unisex Sizing</span></div>
           <p class="product-desc">Long-sleeve sun shirt with the FIN walleye mark across the chest. Lightweight, breathable, built for a full day on the water.</p>
-          <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
-          <a href="#" class="buy-btn disabled">Select a Size</a>
+          <p class="size-note">Sizes: S / M / L / XL / 2XL — choose at checkout</p>
+          <a href="STRIPE_LINK_PLACEHOLDER" class="buy-btn" target="_blank" rel="noopener">Buy Now</a>
         </div>
       </div>
 
       <!-- 2 -->
-      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-2xl="STRIPE_LINK_PLACEHOLDER">
+      <div class="product-card" data-link="STRIPE_LINK_PLACEHOLDER">
         <div class="product-photo"><img src="assets/fin/fin-tee-blue-tie-dye.jpg" alt="FIN Fishing Tee — Blue Tie Dye"/></div>
         <div class="product-info">
           <h3>FIN Fishing Tee — Blue Tie Dye</h3>
           <div class="product-price">$40</div>
           <div class="tag-row"><span class="upf-tag">UPF 50+ Sun Protection</span><span class="unisex-tag">Unisex Sizing</span></div>
           <p class="product-desc">Ice-blue tie dye long sleeve with the FIN walleye mark. Same sun protection, a little more character.</p>
-          <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
-          <a href="#" class="buy-btn disabled">Select a Size</a>
+          <p class="size-note">Sizes: S / M / L / XL / 2XL — choose at checkout</p>
+          <a href="STRIPE_LINK_PLACEHOLDER" class="buy-btn" target="_blank" rel="noopener">Buy Now</a>
         </div>
       </div>
 
       <!-- 3 -->
-      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-2xl="STRIPE_LINK_PLACEHOLDER">
+      <div class="product-card" data-link="STRIPE_LINK_PLACEHOLDER">
         <div class="product-photo"><img src="assets/fin/fin-tee-light-gray-tie-dye.jpg" alt="FIN Fishing Tee — Light Gray Tie Dye"/></div>
         <div class="product-info">
           <h3>FIN Fishing Tee — Light Gray Tie Dye</h3>
           <div class="product-price">$40</div>
           <div class="tag-row"><span class="upf-tag">UPF 50+ Sun Protection</span><span class="unisex-tag">Unisex Sizing</span></div>
           <p class="product-desc">Subtle gray tie dye long sleeve with the FIN walleye mark. Goes with everything in the boat.</p>
-          <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
-          <a href="#" class="buy-btn disabled">Select a Size</a>
+          <p class="size-note">Sizes: S / M / L / XL / 2XL — choose at checkout</p>
+          <a href="STRIPE_LINK_PLACEHOLDER" class="buy-btn" target="_blank" rel="noopener">Buy Now</a>
         </div>
       </div>
 
       <!-- 4 -->
-      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-2xl="STRIPE_LINK_PLACEHOLDER">
+      <div class="product-card" data-link="STRIPE_LINK_PLACEHOLDER">
         <div class="product-photo"><img src="assets/fin/fin-tee-mint-tie-dye.jpg" alt="FIN Fishing Tee — Mint Tie Dye"/></div>
         <div class="product-info">
           <h3>FIN Fishing Tee — Mint Tie Dye</h3>
           <div class="product-price">$40</div>
           <div class="tag-row"><span class="upf-tag">UPF 50+ Sun Protection</span><span class="unisex-tag">Unisex Sizing</span></div>
           <p class="product-desc">A lighter, brighter tie dye colorway with the FIN walleye mark. Stands out on the water.</p>
-          <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
-          <a href="#" class="buy-btn disabled">Select a Size</a>
+          <p class="size-note">Sizes: S / M / L / XL / 2XL — choose at checkout</p>
+          <a href="STRIPE_LINK_PLACEHOLDER" class="buy-btn" target="_blank" rel="noopener">Buy Now</a>
         </div>
       </div>
 
       <!-- 5 -->
-      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-2xl="STRIPE_LINK_PLACEHOLDER">
+      <div class="product-card" data-link="STRIPE_LINK_PLACEHOLDER">
         <div class="product-photo"><img src="assets/fin/fin-hoodie-black-camo.jpg" alt="FIN Fishing Hoodie — Black Camo"/></div>
         <div class="product-info">
           <h3>FIN Fishing Hoodie — Black Camo</h3>
           <div class="product-price">$55</div>
           <div class="tag-row"><span class="upf-tag">UPF 50+ Sun Protection</span><span class="unisex-tag">Unisex Sizing</span></div>
           <p class="product-desc">Black camo hoodie with the FIN walleye mark on the chest. Kangaroo pocket, drawstring hood, built for cooler mornings.</p>
-          <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
-          <a href="#" class="buy-btn disabled">Select a Size</a>
+          <p class="size-note">Sizes: S / M / L / XL / 2XL — choose at checkout</p>
+          <a href="STRIPE_LINK_PLACEHOLDER" class="buy-btn" target="_blank" rel="noopener">Buy Now</a>
         </div>
       </div>
 
       <!-- 6 -->
-      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-2xl="STRIPE_LINK_PLACEHOLDER">
+      <div class="product-card" data-link="STRIPE_LINK_PLACEHOLDER">
         <div class="product-photo"><img src="assets/fin/fin-hoodie-gray-camo.jpg" alt="FIN Fishing Hoodie — Gray Camo"/></div>
         <div class="product-info">
           <h3>FIN Fishing Hoodie — Gray Camo</h3>
           <div class="product-price">$55</div>
           <div class="tag-row"><span class="upf-tag">UPF 50+ Sun Protection</span><span class="unisex-tag">Unisex Sizing</span></div>
           <p class="product-desc">Gray camo hoodie with the FIN walleye mark on the chest. Same build as the black camo, lighter colorway.</p>
-          <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
-          <a href="#" class="buy-btn disabled">Select a Size</a>
+          <p class="size-note">Sizes: S / M / L / XL / 2XL — choose at checkout</p>
+          <a href="STRIPE_LINK_PLACEHOLDER" class="buy-btn" target="_blank" rel="noopener">Buy Now</a>
         </div>
       </div>
 
@@ -507,9 +507,10 @@
     <div class="about-copy">
       <div class="section-eyebrow">Our Story</div>
       <h2>Why Fishing In Nebraska</h2>
-      <!-- PLACEHOLDER COPY — swap for client's real brand story once collected -->
-      <p>FIN started the way most good ideas do — on the water, complaining that nothing we were wearing actually held up to a full day of fishing. So we made our own.</p>
-      <p>It's still a small, family-run operation. Every drop is limited, every piece is made to actually get worn on the river — not just look good hanging in a closet.</p>
+      <!-- brand story adapted from the client's Lake Mac Top Dog guide-service bio (lakemactopdog-revamp.html) —
+           confirm exact wording with Robby before treating as final -->
+      <p>I've been fishing Lake McConaughy for over 25 years — 20 first-place tournament finishes, 25 more in the top five. Somewhere in there I got tired of gear that couldn't keep up with a full day on the lake, so I started making my own.</p>
+      <p>FIN is still a small, family-run operation. Every drop is limited, every piece is made to actually get worn on the water — not just look good hanging in a closet.</p>
     </div>
   </div>
 </section>
@@ -536,8 +537,14 @@
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
-  <!-- PLACEHOLDER shipping/returns copy — swap once client provides real policy -->
-  <p class="foot-note">Free shipping on orders over $75. Returns accepted within 14 days on unworn items with tags attached. Questions? Reach out any time.</p>
+  <!--
+    DRAFT shipping/returns copy — pending Robby's approval, see chat for
+    the full policy sent to him. The "Shipping & Returns policy" link
+    below is a placeholder (href="#") — once Robby signs off, build a
+    dedicated fin-shipping-policy.html page (same pattern as HNS's
+    privacy-policy.html) and point this link there.
+  -->
+  <p class="foot-note">Orders ship within 2&ndash;3 business days. Flat-rate shipping, free on orders over $75. Returns &amp; exchanges accepted within 14 days on unworn items with tags attached &mdash; see our full <a href="#" style="text-decoration:underline;">Shipping &amp; Returns policy</a> for details.</p>
   <p>&copy; 2026 FIN — Fishing In Nebraska. All rights reserved.</p>
 </footer>
 
@@ -545,39 +552,6 @@
   // mobile nav toggle
   document.getElementById('navToggle').addEventListener('click', function() {
     document.getElementById('navLinks').classList.toggle('open');
-  });
-
-  // build size buttons + wire size selection to placeholder Stripe links
-  document.querySelectorAll('.product-card').forEach(function(card) {
-    var sizeRow = card.querySelector('.size-row');
-    if (!sizeRow) return; // coming-soon cards have no size selector
-    var sizes = sizeRow.getAttribute('data-sizes').split(',');
-    var buyBtn = card.querySelector('.buy-btn');
-    var isSoldOut = card.classList.contains('is-sold-out');
-
-    sizes.forEach(function(size) {
-      var btn = document.createElement('button');
-      btn.className = 'size-btn';
-      btn.type = 'button';
-      btn.textContent = size;
-      btn.addEventListener('click', function() {
-        if (isSoldOut) return;
-        sizeRow.querySelectorAll('.size-btn').forEach(function(b) { b.classList.remove('selected'); });
-        btn.classList.add('selected');
-
-        var key = size === 'One Size' ? 'os' : size.toLowerCase();
-        var link = card.getAttribute('data-link-' + key) || '#';
-        buyBtn.href = link;
-        buyBtn.textContent = 'Buy Now — ' + size;
-        buyBtn.classList.remove('disabled');
-      });
-      sizeRow.appendChild(btn);
-    });
-
-    // auto-select one-size items
-    if (sizes.length === 1 && sizes[0] === 'One Size' && !isSoldOut) {
-      sizeRow.querySelector('.size-btn').click();
-    }
   });
 
   // simple scroll fade-in
