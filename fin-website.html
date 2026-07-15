@@ -238,11 +238,13 @@
   .product-card.is-coming-soon .product-photo {
     background: linear-gradient(135deg, var(--sand) 0%, var(--navy2) 140%);
   }
-  .upf-tag {
+  .tag-row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .upf-tag, .unisex-tag {
     display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
-    color: var(--teal); background: rgba(44,122,156,0.1); border-radius: 3px;
-    padding: 3px 8px; text-transform: uppercase; width: fit-content;
+    border-radius: 3px; padding: 3px 8px; text-transform: uppercase; width: fit-content;
   }
+  .upf-tag { color: var(--teal); background: rgba(44,122,156,0.1); }
+  .unisex-tag { color: var(--rust-dark); background: rgba(200,112,61,0.1); }
   .product-info { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
   .product-info h3 { font-size: 16px; color: var(--navy); letter-spacing: 0.4px; }
   .product-price { font-family: 'Oswald', sans-serif; font-size: 18px; color: var(--rust); font-weight: 600; }
@@ -348,7 +350,7 @@
     <div class="section-head">
       <div class="section-eyebrow">The Collection</div>
       <h2>Shop FIN</h2>
-      <p>UPF 50+ sun-protective fishing tees and hoodies. Sizes run S&ndash;2XL. Hats and winter hoodies dropping this fall.</p>
+      <p>UPF 50+ sun-protective fishing tees and hoodies. Unisex sizing, true to size, runs S&ndash;2XL. Hats and winter hoodies dropping this fall.</p>
     </div>
 
     <!--
@@ -373,7 +375,7 @@
         <div class="product-info">
           <h3>FIN Fishing Tee — Tan</h3>
           <div class="product-price">$40</div>
-          <span class="upf-tag">UPF 50+ Sun Protection</span>
+          <div class="tag-row"><span class="upf-tag">UPF 50+ Sun Protection</span><span class="unisex-tag">Unisex Sizing</span></div>
           <p class="product-desc">Long-sleeve sun shirt with the FIN walleye mark across the chest. Lightweight, breathable, built for a full day on the water.</p>
           <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
           <a href="#" class="buy-btn disabled">Select a Size</a>
@@ -386,7 +388,7 @@
         <div class="product-info">
           <h3>FIN Fishing Tee — Blue Tie Dye</h3>
           <div class="product-price">$40</div>
-          <span class="upf-tag">UPF 50+ Sun Protection</span>
+          <div class="tag-row"><span class="upf-tag">UPF 50+ Sun Protection</span><span class="unisex-tag">Unisex Sizing</span></div>
           <p class="product-desc">Ice-blue tie dye long sleeve with the FIN walleye mark. Same sun protection, a little more character.</p>
           <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
           <a href="#" class="buy-btn disabled">Select a Size</a>
@@ -399,7 +401,7 @@
         <div class="product-info">
           <h3>FIN Fishing Tee — Light Gray Tie Dye</h3>
           <div class="product-price">$40</div>
-          <span class="upf-tag">UPF 50+ Sun Protection</span>
+          <div class="tag-row"><span class="upf-tag">UPF 50+ Sun Protection</span><span class="unisex-tag">Unisex Sizing</span></div>
           <p class="product-desc">Subtle gray tie dye long sleeve with the FIN walleye mark. Goes with everything in the boat.</p>
           <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
           <a href="#" class="buy-btn disabled">Select a Size</a>
@@ -412,7 +414,7 @@
         <div class="product-info">
           <h3>FIN Fishing Tee — Mint Tie Dye</h3>
           <div class="product-price">$40</div>
-          <span class="upf-tag">UPF 50+ Sun Protection</span>
+          <div class="tag-row"><span class="upf-tag">UPF 50+ Sun Protection</span><span class="unisex-tag">Unisex Sizing</span></div>
           <p class="product-desc">A lighter, brighter tie dye colorway with the FIN walleye mark. Stands out on the water.</p>
           <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
           <a href="#" class="buy-btn disabled">Select a Size</a>
@@ -425,7 +427,7 @@
         <div class="product-info">
           <h3>FIN Fishing Hoodie — Black Camo</h3>
           <div class="product-price">$55</div>
-          <span class="upf-tag">UPF 50+ Sun Protection</span>
+          <div class="tag-row"><span class="upf-tag">UPF 50+ Sun Protection</span><span class="unisex-tag">Unisex Sizing</span></div>
           <p class="product-desc">Black camo hoodie with the FIN walleye mark on the chest. Kangaroo pocket, drawstring hood, built for cooler mornings.</p>
           <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
           <a href="#" class="buy-btn disabled">Select a Size</a>
@@ -438,7 +440,7 @@
         <div class="product-info">
           <h3>FIN Fishing Hoodie — Gray Camo</h3>
           <div class="product-price">$55</div>
-          <span class="upf-tag">UPF 50+ Sun Protection</span>
+          <div class="tag-row"><span class="upf-tag">UPF 50+ Sun Protection</span><span class="unisex-tag">Unisex Sizing</span></div>
           <p class="product-desc">Gray camo hoodie with the FIN walleye mark on the chest. Same build as the black camo, lighter colorway.</p>
           <div class="size-row" data-sizes="S,M,L,XL,2XL"></div>
           <a href="#" class="buy-btn disabled">Select a Size</a>
