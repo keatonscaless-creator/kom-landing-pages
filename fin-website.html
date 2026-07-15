@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FIN — Fishing In Nebraska | Fishing Apparel</title>
+<meta name="description" content="FIN — Fishing In Nebraska. Rugged, river-inspired fishing apparel from a small family-run outfit. Tees, hoodies, hats, and more."/>
+<meta property="og:title" content="FIN — Fishing In Nebraska"/>
+<meta property="og:description" content="Rugged, river-inspired fishing apparel. Small batch, family-run."/>
+<meta property="og:image" content="/assets/fin/og-image.jpg"/>
+<meta property="og:type" content="website"/>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  /*
+    ============================================================
+    STILL NEEDED FROM CLIENT (Keaton to collect):
+    - Logo file (vector/PNG, transparent background) — currently
+      using a styled "FIN" wordmark placeholder in the nav + hero
+    - Real product list: names, prices, sizes, descriptions, photos
+      (10 placeholders below, marked PLACEHOLDER PRODUCT)
+    - Brand story blurb for Home + About sections
+    - Shipping/returns policy text
+    - Contact email + socials to link
+    - Domain name (or confirm subdomain hosting)
+    - Stripe Payment Link URLs per product/size — search this file
+      for "STRIPE_LINK_PLACEHOLDER" and replace with real links
+      once the client's Stripe account + products are set up
+    ============================================================
+  */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #0B2E45;
+    --navy2: #14476B;
+    --teal: #2C7A9C;
+    --sand: #D9C9A3;
+    --cream: #F5F3EE;
+    --rust: #C8703D;
+    --rust-dark: #A85A2E;
+    --ink: #16232B;
+    --muted: #5A6B72;
+    --border: rgba(11,46,69,0.12);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  h1, h2, h3, .brand-word {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+  /* subtle canvas grain texture, self-contained SVG noise */
+  .grain {
+    position: relative;
+  }
+  .grain::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/></svg>");
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+
+  /* topographic line motif, self-contained SVG background */
+  .topo {
+    background-image:
+      repeating-radial-gradient(circle at 20% 30%, transparent 0, transparent 38px, rgba(245,243,238,0.06) 39px, transparent 40px),
+      repeating-radial-gradient(circle at 80% 70%, transparent 0, transparent 46px, rgba(245,243,238,0.05) 47px, transparent 48px);
+  }
+
+  /* ---------- Nav ---------- */
+  header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(11,46,69,0.97);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 24px; max-width: 1180px; margin: 0 auto;
+  }
+  .brand-word {
+    color: var(--cream); font-size: 22px; letter-spacing: 3px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .brand-word .fin-icon {
+    width: 28px; height: 28px; flex-shrink: 0;
+  }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    color: rgba(245,243,238,0.85); font-size: 14px; font-weight: 600;
+    letter-spacing: 0.5px; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--sand); }
+  .nav-cta {
+    background: var(--rust); color: var(--cream) !important;
+    padding: 10px 20px; border-radius: 4px; font-size: 13px;
+  }
+  .nav-cta:hover { background: var(--rust-dark) !important; }
+  .nav-toggle {
+    display: none; background: none; border: none; color: var(--cream);
+    font-size: 26px; cursor: pointer;
+  }
+  @media (max-width: 720px) {
+    .nav-links {
+      display: none; position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--navy); flex-direction: column; gap: 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { padding: 16px 24px; width: 100%; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-toggle { display: block; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy2) 100%);
+    color: var(--cream);
+    padding: 100px 24px 90px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero .fin-icon-lg { width: 64px; height: 64px; margin: 0 auto 18px; opacity: 0.9; }
+  .hero-eyebrow {
+    font-size: 13px; letter-spacing: 3px; color: var(--sand);
+    text-transform: uppercase; font-weight: 600; margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-size: clamp(40px, 7vw, 72px); line-height: 1.05; margin-bottom: 18px;
+  }
+  .hero h1 span { color: var(--teal); }
+  .hero p.sub {
+    font-family: 'Inter', sans-serif; text-transform: none;
+    font-size: 18px; color: rgba(245,243,238,0.82);
+    max-width: 560px; margin: 0 auto 34px; font-weight: 400;
+  }
+  .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 15px 32px; border-radius: 4px;
+    font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 14px;
+    letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+    border: none; transition: transform 0.15s, background 0.2s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--rust); color: var(--cream); }
+  .btn-primary:hover { background: var(--rust-dark); }
+  .btn-outline { background: transparent; color: var(--cream); border: 1.5px solid rgba(245,243,238,0.4); }
+  .btn-outline:hover { border-color: var(--cream); }
+
+  /* ---------- Section shared ---------- */
+  section { padding: 90px 24px; }
+  .section-head { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+  .section-eyebrow {
+    font-size: 13px; letter-spacing: 3px; color: var(--teal);
+    text-transform: uppercase; font-weight: 700; margin-bottom: 10px;
+  }
+  .section-head h2 { font-size: clamp(28px, 4vw, 40px); color: var(--navy); }
+  .section-head p { color: var(--muted); margin-top: 14px; font-size: 16px; }
+
+  /* ---------- Shop grid ---------- */
+  .shop { background: #fff; }
+  .product-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 28px;
+  }
+  .product-card {
+    background: var(--cream); border: 1px solid var(--border); border-radius: 10px;
+    overflow: hidden; display: flex; flex-direction: column;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .product-card:hover { box-shadow: 0 12px 28px rgba(11,46,69,0.12); transform: translateY(-3px); }
+  .product-photo {
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(245,243,238,0.55);
+    font-size: 12px; text-align: center; padding: 16px;
+    font-family: 'Oswald', sans-serif; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .product-photo::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(45deg, rgba(245,243,238,0.04) 0 2px, transparent 2px 14px);
+  }
+  .sold-out-badge {
+    position: absolute; top: 12px; left: 12px;
+    background: var(--ink); color: var(--cream);
+    font-size: 11px; font-weight: 700; letter-spacing: 1px;
+    padding: 5px 10px; border-radius: 3px; text-transform: uppercase;
+    z-index: 2;
+  }
+  .product-info { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .product-info h3 { font-size: 16px; color: var(--navy); letter-spacing: 0.4px; }
+  .product-price { font-family: 'Oswald', sans-serif; font-size: 18px; color: var(--rust); font-weight: 600; }
+  .product-desc { font-size: 13.5px; color: var(--muted); flex: 1; }
+  .size-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+  .size-btn {
+    border: 1.5px solid var(--border); background: #fff; color: var(--navy);
+    font-size: 12px; font-weight: 600; padding: 6px 10px; border-radius: 4px;
+    cursor: pointer; transition: all 0.15s; font-family: 'Inter', sans-serif;
+  }
+  .size-btn:hover { border-color: var(--teal); }
+  .size-btn.selected { background: var(--navy); border-color: var(--navy); color: var(--cream); }
+  .buy-btn {
+    margin-top: 8px; width: 100%; padding: 12px; border-radius: 5px;
+    background: var(--rust); color: var(--cream); border: none;
+    font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 13px;
+    letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
+    transition: background 0.2s, opacity 0.2s; text-align: center;
+  }
+  .buy-btn:hover { background: var(--rust-dark); }
+  .buy-btn.disabled { opacity: 0.45; cursor: not-allowed; pointer-events: none; background: var(--muted); }
+  .product-card.is-sold-out .buy-btn { opacity: 0.45; cursor: not-allowed; pointer-events: none; background: var(--muted); }
+  .product-card.is-sold-out .size-btn { pointer-events: none; opacity: 0.5; }
+
+  /* ---------- About ---------- */
+  .about { background: var(--sand); color: var(--navy); position: relative; }
+  .about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .about-photo {
+    aspect-ratio: 4/3; border-radius: 10px;
+    background: linear-gradient(150deg, var(--navy), var(--teal));
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(245,243,238,0.6); font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px; text-transform: uppercase; font-size: 13px; text-align: center; padding: 20px;
+  }
+  .about-copy h2 { font-size: clamp(26px, 4vw, 36px); margin-bottom: 18px; }
+  .about-copy p { margin-bottom: 14px; color: rgba(11,46,69,0.85); }
+  @media (max-width: 800px) {
+    .about-inner { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Contact ---------- */
+  .contact { background: var(--navy); color: var(--cream); text-align: center; }
+  .contact h2 { color: var(--cream); }
+  .contact .section-head p { color: rgba(245,243,238,0.75); }
+  .contact-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+  .contact-links a {
+    border: 1.5px solid rgba(245,243,238,0.3); padding: 13px 26px; border-radius: 4px;
+    font-family: 'Oswald', sans-serif; font-size: 13px; letter-spacing: 1px;
+    text-transform: uppercase; transition: all 0.2s;
+  }
+  .contact-links a:hover { border-color: var(--sand); color: var(--sand); }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: #081E2E; color: rgba(245,243,238,0.55);
+    padding: 40px 24px 28px; text-align: center; font-size: 13px;
+  }
+  footer .foot-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 14px; flex-wrap: wrap; }
+  footer .foot-links a { color: rgba(245,243,238,0.7); }
+  footer .foot-links a:hover { color: var(--sand); }
+  footer .foot-note { max-width: 520px; margin: 0 auto 16px; line-height: 1.7; }
+
+  .fade-in { animation: fadeIn 0.7s ease both; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand-word">
+      <!-- placeholder wordmark logo — swap for client's real logo file when provided -->
+      <svg class="fin-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 12C6 6 12 4 20 6C18 9 18 15 20 18C12 20 6 18 2 12Z" stroke="#D9C9A3" stroke-width="1.6"/>
+        <path d="M20 6L22 3" stroke="#D9C9A3" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M20 18L22 21" stroke="#D9C9A3" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="7" cy="12" r="1.1" fill="#D9C9A3"/>
+      </svg>
+      FIN
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#shop" class="nav-cta">Shop Now</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero grain topo">
+  <div class="container">
+    <svg class="fin-icon-lg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M2 12C6 6 12 4 20 6C18 9 18 15 20 18C12 20 6 18 2 12Z" stroke="#D9C9A3" stroke-width="1.4"/>
+      <path d="M20 6L22 3" stroke="#D9C9A3" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M20 18L22 21" stroke="#D9C9A3" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="7" cy="12" r="1" fill="#D9C9A3"/>
+    </svg>
+    <div class="hero-eyebrow">Fishing In Nebraska</div>
+    <h1>Gear built for<br/><span>river days</span></h1>
+    <!-- PLACEHOLDER COPY — swap for client's real brand story blurb -->
+    <p class="sub">Small-batch fishing apparel made by people who'd rather be on the water than anywhere else. No big brand, no hard sell — just gear we actually wear.</p>
+    <div class="hero-ctas">
+      <a href="#shop" class="btn btn-primary">Shop The Drop</a>
+      <a href="#about" class="btn btn-outline">Our Story</a>
+    </div>
+  </div>
+</section>
+
+<section class="shop" id="shop">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">The Collection</div>
+      <h2>Shop FIN</h2>
+      <p>Ten pieces, made to hold up to a full day on the river. Sizes run S&ndash;XXL unless noted.</p>
+    </div>
+
+    <!--
+      PRODUCT GRID — all 10 items below are PLACEHOLDER PRODUCTS.
+      Swap name / price / description / photo per item once the client
+      sends real product data (see brief section 4).
+
+      Each .product-card has data-link-* attributes per size holding
+      "STRIPE_LINK_PLACEHOLDER" — replace each with the real Stripe
+      Payment Link URL for that product+size once Stripe is set up.
+      For "one size" items (hats), only data-link-os is used.
+    -->
+
+    <div class="product-grid">
+
+      <!-- 1 -->
+      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-xxl="STRIPE_LINK_PLACEHOLDER">
+        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
+        <div class="product-info">
+          <h3>River Runner Tee</h3>
+          <div class="product-price">$32</div>
+          <p class="product-desc">A soft, breathable tee for long days on the Platte. Built to take a beating and still look good at the boat ramp.</p>
+          <div class="size-row" data-sizes="S,M,L,XL,XXL"></div>
+          <a href="#" class="buy-btn disabled">Select a Size</a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="product-card" data-link-os="STRIPE_LINK_PLACEHOLDER">
+        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
+        <div class="product-info">
+          <h3>Platte River Trucker Hat</h3>
+          <div class="product-price">$28</div>
+          <p class="product-desc">Structured front, mesh back, embroidered FIN mark. One size, adjustable snap.</p>
+          <div class="size-row" data-sizes="One Size"></div>
+          <a href="#" class="buy-btn disabled">Select a Size</a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-xxl="STRIPE_LINK_PLACEHOLDER">
+        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
+        <div class="product-info">
+          <h3>Backwater Hoodie</h3>
+          <div class="product-price">$58</div>
+          <p class="product-desc">Heavyweight fleece for early mornings on the water before the sun catches up.</p>
+          <div class="size-row" data-sizes="S,M,L,XL,XXL"></div>
+          <a href="#" class="buy-btn disabled">Select a Size</a>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-xxl="STRIPE_LINK_PLACEHOLDER">
+        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
+        <div class="product-info">
+          <h3>FIN Performance Fishing Shirt</h3>
+          <div class="product-price">$48</div>
+          <p class="product-desc">Quick-dry, UPF-rated button-down built for hot days and long casts.</p>
+          <div class="size-row" data-sizes="S,M,L,XL,XXL"></div>
+          <a href="#" class="buy-btn disabled">Select a Size</a>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-xxl="STRIPE_LINK_PLACEHOLDER">
+        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
+        <div class="product-info">
+          <h3>Nebraska Native Long Sleeve</h3>
+          <div class="product-price">$38</div>
+          <p class="product-desc">Sun protection for the whole float, with a clean chest print you won't outgrow.</p>
+          <div class="size-row" data-sizes="S,M,L,XL,XXL"></div>
+          <a href="#" class="buy-btn disabled">Select a Size</a>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="product-card" data-link-os="STRIPE_LINK_PLACEHOLDER">
+        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
+        <div class="product-info">
+          <h3>Sandhill Crane Snapback</h3>
+          <div class="product-price">$26</div>
+          <p class="product-desc">Flat brim, low profile, FIN mark stitched on the front panel. One size.</p>
+          <div class="size-row" data-sizes="One Size"></div>
+          <a href="#" class="buy-btn disabled">Select a Size</a>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-xxl="STRIPE_LINK_PLACEHOLDER">
+        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
+        <div class="product-info">
+          <h3>Catfish Alley Tee</h3>
+          <div class="product-price">$30</div>
+          <p class="product-desc">Ringspun cotton, garment-dyed for a broken-in feel right out of the bag.</p>
+          <div class="size-row" data-sizes="S,M,L,XL,XXL"></div>
+          <a href="#" class="buy-btn disabled">Select a Size</a>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-xxl="STRIPE_LINK_PLACEHOLDER">
+        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
+        <div class="product-info">
+          <h3>Muddy Water Quarter-Zip</h3>
+          <div class="product-price">$62</div>
+          <p class="product-desc">Midweight layer for the shoulder seasons — mornings on the bank, evenings at the fire.</p>
+          <div class="size-row" data-sizes="S,M,L,XL,XXL"></div>
+          <a href="#" class="buy-btn disabled">Select a Size</a>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="product-card" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-xxl="STRIPE_LINK_PLACEHOLDER">
+        <div class="product-photo">Product Photo<br/>— Swap Here —</div>
+        <div class="product-info">
+          <h3>FIN Classic Logo Tee</h3>
+          <div class="product-price">$28</div>
+          <p class="product-desc">The one that started it all. Simple front chest logo, everyday cotton.</p>
+          <div class="size-row" data-sizes="S,M,L,XL,XXL"></div>
+          <a href="#" class="buy-btn disabled">Select a Size</a>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="product-card is-sold-out" data-link-s="STRIPE_LINK_PLACEHOLDER" data-link-m="STRIPE_LINK_PLACEHOLDER" data-link-l="STRIPE_LINK_PLACEHOLDER" data-link-xl="STRIPE_LINK_PLACEHOLDER" data-link-xxl="STRIPE_LINK_PLACEHOLDER">
+        <div class="product-photo">
+          <span class="sold-out-badge">Sold Out</span>
+          Product Photo<br/>— Swap Here —
+        </div>
+        <div class="product-info">
+          <h3>River Guide Windbreaker</h3>
+          <div class="product-price">$75</div>
+          <p class="product-desc">Packable, water-resistant shell for when the weather turns on you mid-float.</p>
+          <div class="size-row" data-sizes="S,M,L,XL,XXL"></div>
+          <a href="#" class="buy-btn disabled">Sold Out</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="about topo" id="about">
+  <div class="container about-inner">
+    <div class="about-photo">Founder / River Photo<br/>— Swap Here —</div>
+    <div class="about-copy">
+      <div class="section-eyebrow">Our Story</div>
+      <h2>Why Fishing In Nebraska</h2>
+      <!-- PLACEHOLDER COPY — swap for client's real brand story once collected -->
+      <p>FIN started the way most good ideas do — on the water, complaining that nothing we were wearing actually held up to a full day of fishing. So we made our own.</p>
+      <p>It's still a small, family-run operation. Every drop is limited, every piece is made to actually get worn on the river — not just look good hanging in a closet.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow">Get In Touch</div>
+      <h2>Questions About An Order?</h2>
+      <p>Reach out and we'll get back to you — usually the same day.</p>
+    </div>
+    <div class="contact-links">
+      <!-- placeholder contact — swap for client's real email + socials -->
+      <a href="mailto:hello@fishinginnebraska.com">Email Us</a>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-links">
+    <a href="#shop">Shop</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <!-- PLACEHOLDER shipping/returns copy — swap once client provides real policy -->
+  <p class="foot-note">Free shipping on orders over $75. Returns accepted within 14 days on unworn items with tags attached. Questions? Reach out any time.</p>
+  <p>&copy; 2026 FIN — Fishing In Nebraska. All rights reserved.</p>
+</footer>
+
+<script>
+  // mobile nav toggle
+  document.getElementById('navToggle').addEventListener('click', function() {
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+
+  // build size buttons + wire size selection to placeholder Stripe links
+  document.querySelectorAll('.product-card').forEach(function(card) {
+    var sizeRow = card.querySelector('.size-row');
+    var sizes = sizeRow.getAttribute('data-sizes').split(',');
+    var buyBtn = card.querySelector('.buy-btn');
+    var isSoldOut = card.classList.contains('is-sold-out');
+
+    sizes.forEach(function(size) {
+      var btn = document.createElement('button');
+      btn.className = 'size-btn';
+      btn.type = 'button';
+      btn.textContent = size;
+      btn.addEventListener('click', function() {
+        if (isSoldOut) return;
+        sizeRow.querySelectorAll('.size-btn').forEach(function(b) { b.classList.remove('selected'); });
+        btn.classList.add('selected');
+
+        var key = size === 'One Size' ? 'os' : size.toLowerCase();
+        var link = card.getAttribute('data-link-' + key) || '#';
+        buyBtn.href = link;
+        buyBtn.textContent = 'Buy Now — ' + size;
+        buyBtn.classList.remove('disabled');
+      });
+      sizeRow.appendChild(btn);
+    });
+
+    // auto-select one-size items
+    if (sizes.length === 1 && sizes[0] === 'One Size' && !isSoldOut) {
+      sizeRow.querySelector('.size-btn').click();
+    }
+  });
+
+  // simple scroll fade-in
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.product-card, .about-inner').forEach(function(el) {
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
